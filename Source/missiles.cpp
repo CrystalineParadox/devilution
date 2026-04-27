@@ -649,7 +649,7 @@ BOOL MonsterMHit(int pnum, int m, int mindam, int maxdam, int dist, int t, BOOLE
 	resist = FALSE;
 	if (monster[m].mtalkmsg
 	    || monster[m]._mhitpoints >> 6 <= 0
-	    || t == MIS_HBOLT && monster[m].MType->mtype != MT_DIABLO && monster[m].MData->mMonstClass != MC_UNDEAD) {
+	    || t == MIS_HBOLT && monster[m].MData->mMonstClass != MC_UNDEAD) {
 		return FALSE;
 	}
 	if (monster[m].MType->mtype == MT_ILLWEAV && monster[m]._mgoal == MGOAL_RETREAT)
@@ -672,7 +672,7 @@ BOOL MonsterMHit(int pnum, int m, int mindam, int maxdam, int dist, int t, BOOLE
 		resist = TRUE;
 
 #ifdef HELLFIRE
-	if (t == MIS_HBOLT && (monster[m].MType->mtype == MT_DIABLO || monster[m].MType->mtype == MT_BONEDEMN))
+	if (t == MIS_HBOLT && monster[m].MType->mtype == MT_BONEDEMN)
 		resist = TRUE;
 #endif
 
